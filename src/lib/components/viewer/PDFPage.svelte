@@ -290,6 +290,7 @@ Selectable text can be rendered in one of two ways:
     background-color: var(--white, white);
     box-shadow: var(--shadow-1);
     width: var(--width, "100%");
+    transition: width 0.3s ease-in-out;
   }
 
   .page-container.scale-width {
