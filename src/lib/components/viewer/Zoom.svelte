@@ -18,16 +18,16 @@ Assumes it's a child of a ViewerContext
   $: zoomLevels = getZoomLevels($mode);
   $: $zoom = getDefaultZoom($mode);
 
-  function zoomIn() {
-    $zoom =
-      (zoomLevels.at(
-        zoomLevels.findIndex((level) => level[0] === $zoom) + 1,
-      )?.[0] as number) ?? 100;
-  }
   function zoomOut() {
     $zoom =
       (zoomLevels.at(
         zoomLevels.findIndex((level) => level[0] === $zoom) - 1,
+      )?.[0] as number) ?? 100;
+  }
+  function zoomIn() {
+    $zoom =
+      (zoomLevels.at(
+        zoomLevels.findIndex((level) => level[0] === $zoom) + 1,
       )?.[0] as number) ?? 100;
   }
 </script>
@@ -46,15 +46,15 @@ Assumes it's a child of a ViewerContext
         {/each}
       </select>
     </label>
-    <Button ghost mode="primary" title="Zoom in" minW={false} on:click={zoomIn}
-      ><ZoomIn16 /></Button
-    >
     <Button
       ghost
       mode="primary"
       title="Zoom out"
       minW={false}
       on:click={zoomOut}><ZoomOut16 /></Button
+    >
+    <Button ghost mode="primary" title="Zoom in" minW={false} on:click={zoomIn}
+      ><ZoomIn16 /></Button
     >
   </div>
 {/if}
